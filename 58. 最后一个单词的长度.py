@@ -7,6 +7,9 @@ class Solution:
         for i in s[::-1]:
             if i != ' ':
                 res+=1
-            else:
+            elif res > 0 and i == ' ':
                 break
+            elif res == 0 and i == ' ':
+                continue
         return res
+        
