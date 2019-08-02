@@ -1,0 +1,11 @@
+'''
+1、LEFT JOIN 关键字会从左表 (table_name1) 那里返回所有的行，即使在右表 (table_name2) 中没有匹配的行
+2、on 和 where的区别：
+  ON 条件是在生成临时表时使用的条件，它不管 ON 中的条件是否为真，都会返回左边表中的记录
+  WHERE 条件是在临时表已经生成后，对临时表进行的过滤条件。因为此时已经没有 LEFT JOIN 的含义（必须返回左侧表的记录）了，
+  所以如果 WHERE 条件不为真的记录就会被过滤掉。
+'''
+select FirstName, LastName, City, State
+from Person left join Address
+on Person.PersonId = Address.PersonId
+;
