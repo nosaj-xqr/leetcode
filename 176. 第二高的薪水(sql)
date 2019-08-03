@@ -1,0 +1,21 @@
+'''
+distinct:去重
+group by:根据一个或多个列对结果集进行分组，用于结合聚合函数（如COUNT()、MAX()等），by后面的为关键字，其值唯一，因此也能去重
+测试结果比distinct快
+
+order by:排序，desc是倒序，asc是正序
+
+limit 1 offset 1: limit用于限制查询结果返回的数量，limit 1就表示返回一条记录
+                  offset 1 表示跳过1条记录
+'''
+select
+    (select distinct Salary
+     from Employee
+     order by Salary desc
+     limit 1 offset 1) as SecondHighestSalary;
+     
+     
+select
+    (select Salary from Employee group by Salary
+     order by Salary desc
+     limit 1 offset 1) as SecondHighestSalary;
