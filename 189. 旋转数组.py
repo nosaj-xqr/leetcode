@@ -11,3 +11,11 @@ class Solution:
                 temp = nums[j]
                 nums[j] = last
                 last = temp
+'''
+思路2、切片法
+'''
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        if len(nums) > 1:
+            k = k%len(nums)
+            nums[:] = nums[len(nums)-k:]+nums[:len(nums)-k]
